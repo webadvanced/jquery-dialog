@@ -25,8 +25,12 @@
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 	<script type="text/javascript" src="../src/js/dialog.js"></script>
 	<script type="text/javascript">
+		
 		$(function() {
-			dialog.open({content: "Are you sure you know what you are doing?"})
+			dialog.open({
+				content: "Are you sure you know what you are doing?",
+				title: ".dialog - ridiculously good looking"
+			})
 		});
 	</script>
 </body>
