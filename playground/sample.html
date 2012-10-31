@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<title>dialog.</title>
+	<link rel="stylesheet" type="text/css" href="../src/css/dialog.css">
+	<style type="text/css">
+		body{
+			background: url('images/nasty_fabric.png')
+		}
+	</style>
+</head>
+<body>
+	<!-- <div id="overlay"></div>
+	<div id="modal">
+	    <div id="main">
+	    	<div id="title">.dialog - it's a dialog =)</div>
+	    	<div id="content">Are you sure you know what you are doing?</div>
+	    	<div id="actions">
+	    		<a class="danger" href='#' id='close'>close</a>
+	    		<a class="primary" href='#' id='close'>yes</a>
+	    	</div>
+	    </div>
+	</div> -->
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+	<script type="text/javascript" src="../src/js/dialog.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			dialog.open({content: "Are you sure you know what you are doing?"})
+		});
+	</script>
+</body>
+</html>
