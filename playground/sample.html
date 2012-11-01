@@ -8,6 +8,7 @@
 		body{
 			background: url('images/nasty_fabric.png')
 		}
+		#inline {display: none; width: 200px; }
 	</style>
 </head>
 <body>
@@ -22,15 +23,31 @@
 	    	</div>
 	    </div>
 	</div> -->
+	<ul>
+		<li><a href="http://www.google.com" class="confirm" data-title="dirty pop.">delete</a></li>
+		<li><a href="#runscript" class="confirm" data-id="12" data-processcallback="testCallback">delete with action</a></li>
+		<li><a href="#inline" class="dialog" data-width="300px" data-title="Inline content!">Inline content</a></li>
+		<li><a href="ajaxcontent.html" class="dialog" data-title="Ajax content!">Ajax content</a></li>
+	</ul>
+	<div id="inline">
+		<p>
+			Hi. I was just loaded from content on this page. Don't believe me? Check the page source!
+		</p>
+	</div>
+
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 	<script type="text/javascript" src="../src/js/dialog.js"></script>
 	<script type="text/javascript">
 		
+		var testCallback = function() {
+			alert('you deleted id : ' + $(this).data('id'));
+		};
+
 		$(function() {
 			dialog.open({
 				content: "Are you sure you know what you are doing?",
-				title: ".dialog - ridiculously good looking"
-			})
+				title: "dialog. ridiculously good looking"
+			});
 		});
 	</script>
 </body>
