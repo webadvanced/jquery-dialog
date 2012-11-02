@@ -24,7 +24,8 @@
         confirmEvent,
         defaultsFromEl,
         elCheck,
-        opendialogEvent;
+        opendialogEvent,
+        imageRegex = /\.(jpg|gif|png|jpeg|bpm)/i;
 
     buildTitle = function( title ) {
         if( !title ) {
@@ -100,11 +101,18 @@
             obj.content = $( contentKey ).html();
             dialog.open( obj );
 
+        } else if ( imageRegex.test( contentKey )) {
+
+            obj.content = $( '<img />', { src: contentKey } );
+            dialog.open( obj );
+
         } else {
+            
             $.get( contentKey, function( content ) {
                 obj.content = content;
                 dialog.open( obj );
             } );
+            
         }
     };
 
@@ -203,7 +211,7 @@
         dialog.center();
 
         $( w ).bind( 'resize.modal', dialog.center );
-
+        
         $modal.fadeIn( 'fast', 'swing' );
         $overlay.show();
     };

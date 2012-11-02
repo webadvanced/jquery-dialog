@@ -51,6 +51,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#599bdc', end
 }
 #content {
 	padding: 20px;
+    width: auto;
+    height: auto;
+    overflow: auto;
 }
 #actions {
 	padding: 15px 20px;
