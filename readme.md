@@ -1,0 +1,1 @@
+See https://github.com/webadvanced/jquery-dialog/blob/master/playground/sample.html
