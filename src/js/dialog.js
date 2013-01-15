@@ -208,12 +208,12 @@
             height: settings.height || 'auto'
         } );
 
-        dialog.center();
-
         $( w ).bind( 'resize.modal', dialog.center );
         
-        $modal.fadeIn( 'fast', 'swing' );
-        $overlay.show();
+		dialog.center();
+        
+		$overlay.show();
+		$modal.fadeIn( 'fast', 'swing' );
     };
 
     // Close the modal
@@ -244,7 +244,7 @@
         $( '.dialog' ).live( 'click', opendialogEvent );
     });
 
-    if( ! w.dialog) {
+    if( ! w.dialog ) {
         w.dialog = dialog;    
     }
 
