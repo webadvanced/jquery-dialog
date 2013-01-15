@@ -228,7 +228,7 @@
     };
 	
 	dialog.closeAndContinue = function() {
-	    dialog.close();
+        dialog.close();
 	};
 
     init = function() {
