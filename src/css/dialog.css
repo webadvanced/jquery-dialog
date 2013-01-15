@@ -15,6 +15,7 @@
     border-radius:14px;
     padding:8px;
     box-shadow: 0 0 1em #444;
+	z-index: 999;
 }
 
 #main {

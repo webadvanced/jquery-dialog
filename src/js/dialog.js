@@ -159,17 +159,17 @@
         
         //buttons
         
-        cancelBtn.text = options.canceltext || 'close';
+        cancelBtn.text = options.canceltext || 'cancel';
         cancelBtn.href = '#close';
         cancelBtn[ 'class' ] = options[ 'class' ] || 'close';
         cancelBtn.callback = w[ options.cancelcallback ] || undefined;
         cancelBtn.ctx = options.el || undefined;
         actions.push( cancelBtn );
 
-        processBtn.text = options.processtext || 'ok';
+        processBtn.text = options.processtext || 'confirm';
         processBtn.href = options.action || '#';
-        processBtn[ 'class' ] = ( options[ 'class' ] || 'danger' ) + ' close';
-        processBtn.callback = w[ options.processcallback ] || undefined;
+        processBtn[ 'class' ] = ( options[ 'class' ] || 'danger' );
+        processBtn.callback = w[ options.processcallback ] || dialog.closeAndContinue;
         processBtn.ctx = options.el || undefined;
         actions.push( processBtn );
 
@@ -179,7 +179,7 @@
     };
 
     // Center the modal in the viewport
-    dialog.center = function () {
+    dialog.center = function() {
         var top, left;
 
         top = Math.max( $( w ).height() - $modal.outerHeight(), 0 ) / 2;
@@ -192,7 +192,7 @@
     };
 
     // Open the modal
-    dialog.open = function ( settings ) {
+    dialog.open = function( settings ) {
               
         //build the title
         buildTitle( settings.title );
@@ -217,7 +217,8 @@
     };
 
     // Close the modal
-    dialog.close = function () {
+    dialog.close = function( evt ) {
+        if( evt ) evt.preventDefault();
         $modal.hide();
         $overlay.hide();
         $content.empty();
@@ -225,6 +226,10 @@
         $actions.empty();
         $( w ).unbind('resize.modal');
     };
+	
+	dialog.closeAndContinue = function() {
+	    dialog.close();
+	};
 
     init = function() {
         $main.append( $title, $content, $actions );
